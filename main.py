@@ -5,12 +5,13 @@ import dynamic as dy
 
 
 def select_algorithm(value: int, coinage: list[Coin]) -> list[Coin]:
-    gap = 0
+    prev_gap = 0
     for i in range(1, len(coinage)):
         new_gap = coinage[i].value - coinage[i - 1].value
-        if new_gap >= gap:
+        if new_gap <= prev_gap:
             print("\nGreedy algorithm not optimal for coin selection. Using dynamic programming...\n")
             return dy.dynamic_programming_algorithm(value, coinage)
+        prev_gap = new_gap
     return gd.greedy_algorithm(value, coinage)
 
 
