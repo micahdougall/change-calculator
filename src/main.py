@@ -5,6 +5,15 @@ import dynamic as dy
 
 
 def select_algorithm(value: int, coinage: list[Coin]) -> list[Coin]:
+    """Runs the most optimal algorithm based on the sequence of coins available.
+
+    Args:
+        value: the amount of change required
+        coinage: the list of available coins
+
+    Returns:
+        the list of coins including the count of each coin needed
+    """
     prev_gap = 0
     for i in range(1, len(coinage)):
         new_gap = coinage[i].value - coinage[i - 1].value
