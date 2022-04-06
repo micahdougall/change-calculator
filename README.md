@@ -4,8 +4,8 @@ Program to calculate the optimal combination of coins (the fewest total number) 
 
 Uses one of two available algorithms:
 
-- `Greedy` &rarr chooses locally optimal solutions to build up global solution
-- `Dynamic Programming` &rarr mathematically optimal for any problem, regardless of coin selection
+- `Greedy` :arrow_right: chooses locally optimal solutions to build up global solution
+- `Dynamic Programming` :arrow_right: mathematically optimal for any problem, regardless of coin selection
 
 Depending on the available coins, the program will determine the optimum algorithm and return a print out of the coins required.
 
