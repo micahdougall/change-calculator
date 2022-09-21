@@ -18,20 +18,33 @@ def select_algorithm(value: int, coinage: list[Coin]) -> list[Coin]:
     for i in range(1, len(coinage)):
         new_gap = coinage[i].value - coinage[i - 1].value
         if new_gap <= prev_gap:
-            print("\nGreedy algorithm not optimal for coin selection. Using dynamic programming...\n")
+            print(
+                "\nGreedy algorithm not optimal for coin selection. Using dynamic programming...\n"
+            )
             return dy.dynamic_programming_algorithm(value, coinage)
         prev_gap = new_gap
     return gd.greedy_algorithm(value, coinage)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Optimum coins selector for any given set of coins and change value.")
-    parser.add_argument('value', type=int, help="change value required")
-    parser.add_argument('-c', '--coins', nargs='+', type=int,
-                        default=[1, 2, 5, 10, 20, 50, 100], help="list of coins available")
-    parser.add_argument('-g', '--greedy', action="store_true",
-                        help="force the use of a greedy algorithm (quicker but not always optimal)")
+        description="Optimum coins selector for any given set of coins and change value."
+    )
+    parser.add_argument("value", type=int, help="change value required")
+    parser.add_argument(
+        "-c",
+        "--coins",
+        nargs="+",
+        type=int,
+        default=[1, 2, 5, 10, 20, 50, 100],
+        help="list of coins available",
+    )
+    parser.add_argument(
+        "-g",
+        "--greedy",
+        action="store_true",
+        help="force the use of a greedy algorithm (quicker but not always optimal)",
+    )
     args = parser.parse_args()
 
     change = args.value

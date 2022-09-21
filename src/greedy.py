@@ -12,8 +12,9 @@ def greedy_algorithm(amount: float, coins: list[Coin]) -> list[Coin]:
 
     Returns:
         the list of coins including the count of each coin needed
+
     """
-    coins.sort(reverse=True)            # List of coins must in descending order
+    coins.sort(reverse=True)  # List of coins must in descending order
     for c in coins:
         c.count = amount // c.value
         amount -= c.count * c.value
